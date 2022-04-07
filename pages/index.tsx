@@ -1,11 +1,56 @@
+import {
+  Box,
+  Button,
+  Divider,
+  Modal,
+  TextField,
+  Typography,
+} from '@mui/material';
+import DenseTable, { TCategory } from 'components/Table';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import HelloWorld from '../components/HelloWorld';
 import HelloWorldGreet from '../modules/greet/components/HelloWorldGreet';
 import styles from '../styles/Home.module.css';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import Link from 'next/link';
+import { useState } from 'react';
+import MenuItem from '@mui/material/MenuItem';
+
+const currencies: { value: string; label: TCategory }[] = [
+  {
+    value: 'income',
+    label: 'income',
+  },
+  {
+    value: 'expense',
+    label: 'expense',
+  },
+  {
+    value: 'fixed_cost',
+    label: 'fixed_cost',
+  },
+  {
+    value: 'variable_expends',
+    label: 'variable_expends',
+  },
+  {
+    value: 'debts',
+    label: 'debts',
+  },
+  {
+    value: 'investment',
+    label: 'investment',
+  },
+];
 
 const Home: NextPage = () => {
+  const [currency, setCurrency] = useState<TCategory>();
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCurrency(event.target.value as TCategory);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -15,8 +60,92 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <Link href="/dashboard">
+          <a>Dashboard Page</a>
+        </Link>
+        <Link href="/income">
+          <a>Income</a>
+        </Link>
+        <Link href="/expense">
+          <a>Expense</a>
+        </Link>
+
         <HelloWorld />
         <HelloWorldGreet />
+
+        <div>
+          <Box
+            aria-label="toolbar"
+            sx={{ display: 'flex', marginTop: '20px', marginBottom: '20px' }}
+          >
+            <Box sx={{ flex: '1 1 auto' }}></Box>
+            <Button variant="contained" endIcon={<AddCircleIcon />}>
+              Crea nuevo registro
+            </Button>
+          </Box>
+          <DenseTable />
+        </div>
+
+        <Modal
+          open={true}
+          onClose={() => {
+            console.log('close');
+          }}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 400,
+              bgcolor: 'background.paper',
+              boxShadow: 24,
+              p: 4,
+            }}
+          >
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Text in a modal
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+            <TextField
+              sx={{ mt: 1, mb: 1 }}
+              fullWidth
+              label="Description"
+              color="primary"
+            />
+            <TextField
+              sx={{ mt: 1, mb: 1 }}
+              fullWidth
+              label="Amount"
+              color="primary"
+              type="number"
+            />
+            <TextField
+              sx={{ mt: 1, mb: 1 }}
+              id="outlined-select-currency"
+              select
+              fullWidth
+              label="Category"
+              value={currency}
+              onChange={handleChange}
+              helperText="Please select your currency"
+            >
+              {currencies.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <Divider />
+            <Button>Cancelar</Button>
+            <Button>Crear</Button>
+          </Box>
+        </Modal>
       </main>
 
       <footer className={styles.footer}>
