@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Money from 'hooks/Money';
 
 export type TCategory =
   | 'income'
@@ -15,16 +16,21 @@ export type TCategory =
   | 'debts'
   | 'investment';
 
-function createData(name: string, amount: number, category: TCategory) {
-  return { name, amount, category };
+function createData(
+  name: string,
+  amount: number,
+  date: string,
+  category: TCategory,
+) {
+  return { name, amount, date, category };
 }
 
 const rows = [
-  createData('Pago 1', 159, 'variable_expends'),
-  createData('Pago tarjeta 2', 237, 'variable_expends'),
-  createData('Ingreso sueldo globaltask', 262, 'income'),
-  createData('Invertsion crypto', 305, 'investment'),
-  createData('Pago tarjeta 3', 356, 'variable_expends'),
+  createData('Pago 1', 159, '2022-04-08', 'variable_expends'),
+  createData('Pago tarjeta 2', 237, '2022-04-08', 'variable_expends'),
+  createData('Ingreso sueldo globaltask', 262, '2022-04-08', 'income'),
+  createData('Invertsion crypto', 305, '2022-04-08', 'investment'),
+  createData('Pago tarjeta 3', 356, '2022-04-08', 'variable_expends'),
 ];
 
 const DenseTable: VoidFunctionComponent = () => {
@@ -34,6 +40,7 @@ const DenseTable: VoidFunctionComponent = () => {
         <TableHead>
           <TableRow>
             <TableCell>Description</TableCell>
+            <TableCell>Date</TableCell>
             <TableCell>Category</TableCell>
             <TableCell align="right">Amount</TableCell>
           </TableRow>
@@ -47,8 +54,11 @@ const DenseTable: VoidFunctionComponent = () => {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
+              <TableCell>{row.date}</TableCell>
               <TableCell>{row.category}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
+              <TableCell align="right">
+                <Money amount={row.amount} />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
