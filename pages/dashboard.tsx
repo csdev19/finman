@@ -1,12 +1,15 @@
 import { Box } from '@mui/material';
+import DashboardSkeleton from 'components/DashboardSkeleton';
 import { NextPage } from 'next';
 import React from 'react';
 
 const DashboardPage: NextPage = () => {
   return (
-    <div>
-      <Box>DashboardPage</Box>
-    </div>
+    <>
+      <DashboardSkeleton>
+        <Box>DashboardPage</Box>
+      </DashboardSkeleton>
+    </>
   );
 };
 
