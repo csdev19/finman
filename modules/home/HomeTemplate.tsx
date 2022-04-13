@@ -1,55 +1,17 @@
 import React, { useEffect, VoidFunctionComponent } from 'react';
-import {
-  Box,
-  Button,
-  Divider,
-  Modal,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Box, Button } from '@mui/material';
 import Head from 'next/head';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useState } from 'react';
-import MenuItem from '@mui/material/MenuItem';
 import DashboardLayout from 'layouts/DashboardLayout';
 import Container from '@mui/material/Container';
 import TransactionsTable from './components/TransactionsTable';
-import { ITransaction, TCategory } from 'interfaces/income.interface';
+import { ITransaction } from 'interfaces/income.interface';
 import { transactionService } from 'services';
-
-const currencies: { value: string; label: TCategory }[] = [
-  {
-    value: 'income',
-    label: 'income',
-  },
-  {
-    value: 'expense',
-    label: 'expense',
-  },
-  {
-    value: 'fixed_cost',
-    label: 'fixed_cost',
-  },
-  {
-    value: 'variable_expends',
-    label: 'variable_expends',
-  },
-  {
-    value: 'debts',
-    label: 'debts',
-  },
-  {
-    value: 'investment',
-    label: 'investment',
-  },
-];
+import CreateTransactionModal from './components/CreateTransactionModal';
 
 const HomeTemplate: VoidFunctionComponent = () => {
   const [open, setOpen] = useState(false);
-  const [currency, setCurrency] = useState<TCategory>();
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCurrency(event.target.value as TCategory);
-  };
 
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
@@ -60,6 +22,10 @@ const HomeTemplate: VoidFunctionComponent = () => {
     };
     fetch();
   }, []);
+
+  const handleSave = (data) => {
+    console.log('data', data);
+  };
 
   return (
     <>
@@ -87,71 +53,11 @@ const HomeTemplate: VoidFunctionComponent = () => {
             </Box>
             <TransactionsTable transactions={transactions} />
           </div>
-
-          <Modal
+          <CreateTransactionModal
             open={open}
-            onClose={() => {
-              console.log('close');
-              setOpen(false);
-            }}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box
-              sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: 400,
-                bgcolor: 'background.paper',
-                boxShadow: 24,
-                p: 4,
-              }}
-            >
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Text in a modal
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
-              <TextField
-                sx={{ mt: 1, mb: 1 }}
-                fullWidth
-                label="Description"
-                color="primary"
-              />
-              <TextField
-                sx={{ mt: 1, mb: 1 }}
-                fullWidth
-                label="Amount"
-                color="primary"
-                type="number"
-              />
-              <TextField
-                sx={{ mt: 1, mb: 1 }}
-                id="outlined-select-currency"
-                select
-                fullWidth
-                label="Category"
-                value={currency}
-                onChange={handleChange}
-                helperText="Please select your currency"
-              >
-                {currencies.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <Divider />
-              <Box sx={{ marginTop: '20px', display: 'flex' }}>
-                <Box sx={{ flex: '1 1 auto' }}></Box>
-                <Button>Cancelar</Button>
-                <Button variant="contained">Crear</Button>
-              </Box>
-            </Box>
-          </Modal>
+            onClose={() => setOpen(false)}
+            onSave={handleSave}
+          />
         </Container>
       </DashboardLayout>
     </>
