@@ -1,0 +1,65 @@
+{
+  "transactions": {
+    "method": "GET",
+    "codeResponse": "success",
+    "responses": [
+      {
+        "statusCode": "200",
+        "selectorCode": "success",
+        "body": [
+          {
+              "id": 1,
+              "name": "Pago 1",
+              "amount": 159,
+              "date": "2022-04-08T03:39:08.989Z",
+              "category": "variable_expends"
+          },
+          {
+              "id": 2,
+              "name": "Pago tarjeta 2",
+              "amount": 237,
+              "date": "2022-04-08T03:39:08.989Z",
+              "category": "variable_expends"
+          },
+          {
+              "id": 3,
+              "name": "Ingreso sueldo globaltask",
+              "amount": 262,
+              "date": "2022-04-08T03:39:08.989Z",
+              "category": "income"
+          },
+          {
+              "id": 4,
+              "name": "Invertsion crypto",
+              "amount": 305,
+              "date": "2022-04-08T03:39:08.989Z",
+              "category": "investment"
+          },
+          {
+              "id": 5,
+              "name": "Pago tarjeta 3",
+              "amount": 356,
+              "date": "2022-04-08T03:39:08.989Z",
+              "category": "variable_expends"
+          }
+        ]
+      },
+      {
+        "statusCode": "400",
+        "selectorCode": "error400",
+        "body": {
+          "description": "Invalid data.",
+          "errorType": "Functional"
+        }
+      },
+      {
+        "statusCode": "401",
+        "selectorCode": "error401",
+        "body": {
+          "description": "Unauthorized User.",
+          "errorType": "Functional"
+        }
+      }
+    ]
+  }
+}
