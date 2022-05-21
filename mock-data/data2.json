@@ -1,0 +1,140 @@
+{
+  "cryptos": {
+    "method": "GET",
+    "codeResponse": "success",
+    "responses": [
+      {
+        "statusCode": "200",
+        "selectorCode": "success",
+        "body":  [
+          {
+            "id": 1,
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 2,
+            "name": "Ethereum",
+            "symbol": "ETH",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 3,
+            "name": "Tether",
+            "symbol": "USDT",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 4,
+            "name": "BNB",
+            "symbol": "BNB",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 5,
+            "name": "USD Coin",
+            "symbol": "USDC",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 6,
+            "name": "XRP",
+            "symbol": "XRP",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 7,
+            "name": "Solana",
+            "symbol": "SOL",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 8,
+            "name": "Cardano",
+            "symbol": "ADA",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 9,
+            "name": "Terra",
+            "symbol": "LUNA",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 10,
+            "name": "Avalanche",
+            "symbol": "AVAX",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 11,
+            "name": "Dogecoin",
+            "symbol": "DOGE",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 12,
+            "name": "Polkadot",
+            "symbol": "DOT",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 13,
+            "name": "Binance US",
+            "symbol": "BNB",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 14,
+            "name": "TerraUSD",
+            "symbol": "UST",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 15,
+            "name": "Shiba Inu",
+            "symbol": "SHIB",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 16,
+            "name": "Polygon",
+            "symbol": "MATIC",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 17,
+            "name": "Dai",
+            "symbol": "DAI",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 18,
+            "name": "Litecoin",
+            "symbol": "LTC",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 19,
+            "name": "Algorand",
+            "symbol": "ALGO",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 20,
+            "name": "THORChain",
+            "symbol": "RUNE",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          },
+          {
+            "id": 21,
+            "name": "Decentraland",
+            "symbol": "MANA",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/200x200/1.png"
+          }
+        ]
+      }
+    ]
+  }
+}

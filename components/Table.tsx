@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Money from 'hooks/Money';
 
-export type TCategory =
+type TCategory =
   | 'income'
   | 'expense'
   | 'fixed_cost'

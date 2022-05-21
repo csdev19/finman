@@ -1,14 +1,14 @@
 import { Box } from '@mui/material';
-import DashboardSkeleton from 'components/DashboardSkeleton';
+import DashboardLayout from 'layouts/DashboardLayout';
 import { NextPage } from 'next';
 import React from 'react';
 
 const ExpensePage: NextPage = () => {
   return (
     <>
-      <DashboardSkeleton>
+      <DashboardLayout>
         <Box>ExpensePage</Box>
-      </DashboardSkeleton>
+      </DashboardLayout>
     </>
   );
 };

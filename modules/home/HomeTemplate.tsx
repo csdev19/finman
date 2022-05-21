@@ -6,7 +6,7 @@ import { useState } from 'react';
 import DashboardLayout from 'layouts/DashboardLayout';
 import Container from '@mui/material/Container';
 import TransactionsTable from './components/TransactionsTable';
-import { ITransaction } from 'interfaces/income.interface';
+import { ITransaction } from 'interfaces/income.interfaces';
 import { transactionService } from 'services';
 import CreateTransactionModal from './components/CreateTransactionModal';
 
